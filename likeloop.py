@@ -60,7 +60,7 @@ search_input.send_keys(hashtag)
 sleep(1)
 
 search_input.send_keys(Keys.ENTER)
-sleep(1)
+sleep(2)
 
 search_input.send_keys(Keys.ENTER)
 sleep(5)
@@ -74,8 +74,8 @@ sleep(1)
 print("The suggested amounts for likes and break are:\n10 likes every 300 seconds")
 sleep(1)
 
-like_amount = input("How many post to like in a single loop?: ")
-break_time = input("How long should the break be?: ")
+like_amount = int(input("How many post to like in a single loop?: "))
+break_time = int(input("How long should the break be?: "))
 sleep(1)
 
 print("Sit back and let me grow your account!")
