@@ -4,4 +4,4 @@
 
 # Please be patient!
 
-### Currently, assistant likes most recent posts of the choosen hashtag. Program will ask you for your: username, password, hashtag, amount of likes in a singe loop and the time (in seconds) that it should wait before the next loop!
+### Currently, the assistant likes the most recent posts of the chosen hashtag. The program will ask you for your: username, password, hashtag, amount of likes in a single loop, and the time (in seconds) that it should wait before the next loop!
