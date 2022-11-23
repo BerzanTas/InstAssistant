@@ -52,9 +52,7 @@ class Unfollow:
         my_profile.click()
         sleep(5)
 
-        my_follows = self.driver.find_element(By.XPATH, '//div[contains(text(), "Obserwowani: ")]')
-        my_follows.click()
-        sleep(2)
+        
 
     def unfollow(self):
         self.unfollow_buttons = self.driver.find_elements(By.XPATH, '//button[@class = "_acan _acap _acat"]')
@@ -64,11 +62,11 @@ class Unfollow:
 
     def mainaction(self):
         while(True):
-            #CLICK ON FOLLOWERS
+            #CLICK ON FOLLOWS
             
-            followers = self.driver.find_element(By.XPATH, '//li[@class="xl565be x1m39q7l x1uw6ca5 x2pgyrj"]//a')
-            followers.click()
-            sleep(3)
+            my_follows = self.driver.find_element(By.XPATH, '//div[contains(text(), "Obserwowani: ")]')
+            my_follows.click()
+            sleep(2)
             
             counter = 0
 
@@ -76,17 +74,18 @@ class Unfollow:
                 try:
 
                     unfollow_butt = self.unfollow()
-                    for buttons in unfollow_butt:
+                    for button in unfollow_butt:
 
-                        self.driver.execute_script("arguments[0].scrollIntoView(true);", buttons)
+                        self.driver.execute_script("arguments[0].scrollIntoView(true);", button)
                             
-                        if buttons.text == 'Obserwowanie' and counter<6:
-                            buttons.click()
+                        if button.text == 'Obserwowanie' and counter<6:
+                            button.click()
                             counter+=1
                             sleep(2)
 
                             stopfollowingbutton = self.driver.find_element(By.XPATH, "//button[@class = '_a9-- _a9-_']")
                             stopfollowingbutton.click()
+                            sleep(2)
 
                     if counter == 6:
                         break
@@ -109,10 +108,13 @@ class Unfollow:
 
     def runAll(self):
         self.prepareTo()
+        self.unfollow()
+        self.mainaction()
 
 
 
 
 if __name__ == "__main__":
-    run = Unfollow()
+
+    run = Unfollow("Karaluki1", "testowyinsta")
     run.runAll()
