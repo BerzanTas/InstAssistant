@@ -115,6 +115,10 @@ class Unfollow:
 
 
 if __name__ == "__main__":
+    username = input("Enter your Instagram login/e-mail/phone number: ")
+    sleep(1)
+    password = input("Enter password: ")
+    sleep(1)
 
-    run = Unfollow("Karaluki1", "testowyinsta")
+    run = Unfollow(username, password)
     run.runAll()
